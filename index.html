@@ -216,15 +216,6 @@ table.grid tbody tr:first-child td{border-top:0}
 .paket{display:grid;gap:4px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:12px 14px;box-shadow:var(--sh-1)}
 .paket label{font-weight:700;font-size:14px}
 
-/* Habit */
-.habit{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:16px;display:grid;gap:10px;box-shadow:var(--sh-1)}
-.habit h3{display:flex;align-items:center;gap:8px;font-size:15px;color:var(--blue-deep)}
-.habit h3 .ic{color:var(--blue)}
-.habit .sent{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
-.habit .sent span{font-weight:700;color:var(--muted)}
-.habit .sent input{flex:1 1 220px;width:auto;border:1px solid var(--line);background-color:var(--bg)}
-.habit .preview{font-style:italic;color:var(--ex-ink);font-size:15px;min-height:1.5em}
-
 /* Example */
 .exbtn{justify-self:start;display:inline-flex;align-items:center;gap:8px;border:1.5px solid var(--orange);color:var(--orange-ink);background:var(--surface);border-radius:99px;padding:7px 16px 7px 12px;font-weight:700;font-size:14px;cursor:pointer;box-shadow:0 6px 12px -8px rgba(179,92,0,.55);transition:background-color .15s,color .15s}
 .exbtn:hover{background:var(--orange-soft)}
@@ -518,7 +509,6 @@ body.lock{overflow:hidden}
   <symbol id="i-flag" viewBox="0 0 24 24"><path d="M5 21V4"/><path d="M5 4h12l-2.5 4.5L17 13H5"/></symbol>
   <symbol id="i-chat" viewBox="0 0 24 24"><path d="M3 6.5A2.5 2.5 0 0 1 5.5 4h8A2.5 2.5 0 0 1 16 6.5v4a2.5 2.5 0 0 1-2.5 2.5H9l-4 3v-3.2A2.5 2.5 0 0 1 3 10.5z"/><path d="M19 9h.5a1.5 1.5 0 0 1 1.5 1.5V15a1.5 1.5 0 0 1-1.5 1.5H19v3l-3.5-3H12a1.5 1.5 0 0 1-1.5-1.5"/></symbol>
   <symbol id="i-network" viewBox="0 0 24 24"><circle cx="12" cy="5" r="2.5"/><circle cx="5" cy="18" r="2.5"/><circle cx="19" cy="18" r="2.5"/><path d="M10.8 7.2 6.2 15.8M13.2 7.2l4.6 8.6M7.5 18h9"/></symbol>
-  <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4M8 14h2M14 14h2M8 17.5h2"/></symbol>
   <symbol id="i-done" viewBox="0 0 24 24"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V3h6v1"/><path d="m9 13 2 2 4-4"/></symbol>
   <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><path d="M16 4.6a3.5 3.5 0 0 1 0 6.8M18 14.2a6.5 6.5 0 0 1 3.5 5.8"/></symbol>
   <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
@@ -594,9 +584,9 @@ body.lock{overflow:hidden}
     <div class="gpanel gp-peserta">
       <svg class="ic art" aria-hidden="true"><use href="#i-route"/></svg>
       <h2>Isi lembar kerja Anda, sesi demi sesi</h2>
-      <p>Refleksi awal dan tujuh latihan, sampai rencana 30 hari. Kirim jawaban ke fasilitator setiap selesai satu latihan, lalu simpan hasilnya sebagai PDF. Isian tersimpan otomatis di perangkat ini.</p>
+      <p>Refleksi awal dan enam latihan, lalu ringkasan rencana kerja Anda. Kirim jawaban ke fasilitator setiap selesai satu latihan, lalu simpan hasilnya sebagai PDF. Isian tersimpan otomatis di perangkat ini.</p>
       <ol class="mini-route" aria-hidden="true">
-        <li><span>0</span></li><li><span>1</span></li><li><span>2</span></li><li><span>3</span></li><li><span>4</span></li><li><span>5</span></li><li><span>6</span></li><li><span>7</span></li><li><span><svg class="ic"><use href="#i-done"/></svg></span></li>
+        <li><span>0</span></li><li><span>1</span></li><li><span>2</span></li><li><span>3</span></li><li><span>4</span></li><li><span>5</span></li><li><span>6</span></li><li><span><svg class="ic"><use href="#i-done"/></svg></span></li>
       </ol>
       <button type="button" class="btn y" id="asPeserta"><span>Mulai mengisi</span><svg class="ic" aria-hidden="true"><use href="#i-arrow-r"/></svg></button>
     </div>
@@ -752,10 +742,7 @@ const EX = {
   l6_risiko:'Pelebaran tertahan tiang listrik; keluhan debu bisa viral menjelang Nataru',
   l6_t1:'Rapat teknis jadwal pemindahan tiang dengan pemilik utilitas',l6_w1:'Senin depan',l6_pic1:'PPK',
   l6_t2:'Pasang papan informasi proyek dan jadwal penyiraman jalan',l6_w2:'Minggu ini',l6_pic2:'Kontraktor, diawasi PPK',
-  l6_t3:'Laporan risiko dan usulan langkah kepada Kepala Balai',l6_w3:'Jumat',l6_pic3:'Kepala Satker',
-  l7_k1a:'Senin pukul 07.30',l7_k1b:'memperbarui daftar beban dan memilih 3 prioritas minggu ini',
-  l7_k2a:'ada permintaan tambahan',l7_k2b:'memakai pola terima-paparkan-minta pilihan sebelum menjawab "siap"',
-  l7_mitra:'[Nama rekan], PPK paket lain', l7_tgl:'[tanggal]'
+  l6_t3:'Laporan risiko dan usulan langkah kepada Kepala Balai',l6_w3:'Jumat',l6_pic3:'Kepala Satker'
 };
 
 /* Schema: one source for form, example panel and summary */
@@ -858,18 +845,6 @@ const STEPS = [
     {t:'actions'}
    ],
    core:s=>{const n=[1,2,3,4,5,6].filter(i=>s['l6_ph'+i]&&s['l6_kd'+i]).length; return [!!s.l6_paket,n>=5,!!s.l6_belum,!!s.l6_risiko,!!s.l6_t1,!!s.l6_t2,!!s.l6_t3]} },
-
- { id:'l7', km:'7', icon:'calendar', nav:'Rencana 30 Hari', min:'15 menit', eyebrow:'Latihan 7 · Rencana 30 hari · 15 menit',
-   title:'Pilih dua kebiasaan, bukan lima',
-   intro:'Tulis dengan pola: "Setiap [waktu/kejadian], saya akan [tindakan]." Tukar dengan satu rekan dan sepakati tanggal saling cek.',
-   why:'Dua kebiasaan yang dijalankan lebih berdampak daripada lima yang hanya ditulis. Untuk Kepala Satker dan PPK, salah satu kebiasaan sebaiknya berasal dari Latihan 6.',
-   blocks:[
-    {t:'habit', n:1},{t:'habit', n:2},
-    {t:'pairs', head:['Rencana','Isian'], rows:[
-      {k:'l7_mitra',l:'Mitra akuntabilitas'},
-      {k:'l7_tgl',l:'Tanggal saling cek (2 minggu lagi)',type:'date'}]}
-   ],
-   core:s=>['l7_k1a','l7_k1b','l7_k2a','l7_k2b','l7_mitra','l7_tgl'].map(k=>!!s[k]) },
 
  { id:'ringkasan', km:'', icon:'done', nav:'Ringkasan', min:'Kirim & PDF', eyebrow:'Ringkasan · Kirim & PDF', title:'Rencana kerja saya',
    intro:'Semua isian Anda dalam satu halaman. Kirim ke fasilitator, simpan sebagai PDF, atau salin teksnya.', summary:true }
@@ -995,10 +970,6 @@ function mx6Inner(st){
     {name:'Informasikan',cls:'k3',items:by['Informasikan'],hint:'Kepentingan tinggi, pengaruh rendah'}
   ]) + axX('Kepentingan');
 }
-function habitPreview(st, n){
-  const a=String(st['l7_k'+n+'a']??'').trim(), b=String(st['l7_k'+n+'b']??'').trim();
-  return (a||b) ? `"Setiap ${a||'...'}, saya akan ${b||'...'}."` : 'Kalimat lengkap akan muncul di sini.';
-}
 
 function blockHTML(b, c){
   const st = c.st;
@@ -1029,8 +1000,6 @@ function blockHTML(b, c){
         rows += `<tr><td class="no">${i}</td><td><textarea ${at(c,'l6_t'+i)} rows="1" aria-label="Tindakan komunikasi ${i}"${ph(c,'Tindakan komunikasi')} style="min-height:42px">${vv(c,'l6_t'+i)}</textarea></td><td style="width:20%"><input type="text" ${at(c,'l6_w'+i)} value="${vv(c,'l6_w'+i)}" aria-label="Kapan ${i}"${ph(c,'Kapan')}></td><td style="width:22%"><input type="text" ${at(c,'l6_pic'+i)} value="${vv(c,'l6_pic'+i)}" aria-label="PIC ${i}"${ph(c,'PIC')}></td></tr>`;
       return `<div class="card tbl-wrap"><table class="grid g4"><thead><tr><th>No</th><th>Tindakan komunikasi</th><th>Kapan</th><th>PIC</th></tr></thead><tbody>${rows}</tbody></table></div>`;
     }
-    case 'habit': { const a='l7_k'+b.n+'a', d='l7_k'+b.n+'b';
-      return `<div class="habit"><h3>${ic('calendar')}Kebiasaan ${b.n}</h3><div class="sent"><span>Setiap</span><input type="text" ${at(c,a)} value="${vv(c,a)}"${ph(c,'waktu atau kejadian')} aria-label="Kebiasaan ${b.n}: setiap"><span>, saya akan</span><input type="text" ${at(c,d)} value="${vv(c,d)}"${ph(c,'tindakan')} aria-label="Kebiasaan ${b.n}: saya akan"></div><div class="preview" id="${c.p}pv${b.n}">${esc(habitPreview(st, b.n))}</div></div>`; }
   }
   return '';
 }
@@ -1056,7 +1025,6 @@ function exampleHTML(step){
     if (b.t==='paket') parts.push(`<dl><dt>Paket yang saya petakan</dt><dd>${esc(EX.l6_paket)}</dd></dl>`);
     if (b.t==='stake') parts.push(`<div class="tbl-wrap"><table class="ex-tbl"><thead><tr><th>Pihak</th><th>Kuadran</th><th>Kepentingan atau kekhawatiran</th></tr></thead><tbody>${[1,2,3,4,5,6].map(i=>`<tr><td>${esc(EX['l6_ph'+i])}</td><td>${esc(EX['l6_kd'+i])}</td><td>${esc(EX['l6_kp'+i])}</td></tr>`).join('')}</tbody></table></div>`);
     if (b.t==='actions') parts.push(`<div class="tbl-wrap"><table class="ex-tbl"><thead><tr><th>Tindakan komunikasi</th><th>Kapan</th><th>PIC</th></tr></thead><tbody>${[1,2,3].map(i=>`<tr><td>${esc(EX['l6_t'+i])}</td><td>${esc(EX['l6_w'+i])}</td><td>${esc(EX['l6_pic'+i])}</td></tr>`).join('')}</tbody></table></div>`);
-    if (b.t==='habit') parts.push(`<dl><dt>Kebiasaan ${b.n}</dt><dd>Setiap ${esc(EX['l7_k'+b.n+'a'])}, saya akan ${esc(EX['l7_k'+b.n+'b'])}.</dd></dl>`);
   }
   return `<div class="ex" id="ex_${step.id}" hidden><span class="ex-tag">${ic('bulb')}Contoh pengisian · PPK fiktif</span>${parts.join('')}<p class="why"><b>Catatan fasilitator:</b> ${esc(step.why)}</p></div>`;
 }
@@ -1107,7 +1075,6 @@ function refreshL3(){
   const nr = document.getElementById('negoref'); if (nr) nr.innerHTML = negorefInner(S);
 }
 function refreshL6(){ const mx = document.getElementById('mx6'); if (mx) mx.innerHTML = mx6Inner(S); }
-function refreshHabits(){ for (const n of [1,2]){ const el = document.getElementById('pv'+n); if (el) el.textContent = habitPreview(S, n); } }
 function progress(){
   const doneN = STEPS.filter(x=>!x.summary && x.core(S).every(Boolean)).length;
   document.getElementById('routeCount').textContent = `${doneN} dari ${STEPS.length-1} bagian lengkap`;
@@ -1121,8 +1088,6 @@ function progress(){
 }
 
 /* ---------- Summary ---------- */
-const habitOf = (st,n) => { const a=String(st['l7_k'+n+'a']??'').trim(), b=String(st['l7_k'+n+'b']??'').trim(); return (a||b)?`Setiap ${a||'...'}, saya akan ${b||'...'}.`:''; };
-function habitText(n){ return habitOf(S,n); }
 function dd(v){ return v ? esc(v) : '<span class="blank">Belum diisi</span>'; }
 /* One body per step, shared by the summary, the PDF and the admin dashboard */
 function sections(st){
@@ -1137,8 +1102,7 @@ function sections(st){
     l3:['Latihan 3 · Triase beban nyata', `${jobs.length?`<div class="tbl-wrap"><table><thead><tr><th>No</th><th>Pekerjaan</th><th>Tenggat</th><th>Kuadran</th></tr></thead><tbody>${jobs.map((i,n)=>`<tr><td>${n+1}</td><td>${esc(g('l3_job'+i))}</td><td>${esc(g('l3_tg'+i))}</td><td>${esc(g('l3_kd'+i))}</td></tr>`).join('')}</tbody></table></div>`:''}<dl><dt>Prioritas 1</dt><dd>${d('l3_p1')}</dd><dt>Prioritas 2</dt><dd>${d('l3_p2')}</dd><dt>Prioritas 3</dt><dd>${d('l3_p3')}</dd><dt>Negosiasi</dt><dd>${d('l3_nego')}</dd></dl>`],
     l4:['Latihan 4 · Langkah pertama besok', `<dl><dt>Prioritas nomor 1</dt><dd>${d('l4_prio')}</dd><dt>Milestone 1</dt><dd>${d('l4_m1')}</dd><dt>Milestone 2</dt><dd>${d('l4_m2')}</dd><dt>Milestone 3</dt><dd>${d('l4_m3')}</dd><dt>Langkah pertama besok</dt><dd>${d('l4_langkah')}</dd><dt>Jam blok fokus</dt><dd>${d('l4_fokus')}</dd><dt>Jam cek pesan</dt><dd>${d('l4_cek')}</dd></dl>`],
     l5:['Latihan 5 · Negosiasi tugas', `<dl><dt>1 · Terima permintaannya</dt><dd>${d('l5_terima')}</dd><dt>2 · Paparkan beban saat ini</dt><dd>${d('l5_papar')}</dd><dt>3 · Minta atasan memilih</dt><dd>${d('l5_pilih')}</dd><dt>Paling meyakinkan</dt><dd>${d('l5_yakin')}</dd><dt>Perlu lebih spesifik</dt><dd>${d('l5_spesifik')}</dd></dl>`],
-    l6:['Latihan 6 · Peta pemangku kepentingan', `<dl><dt>Paket yang dipetakan</dt><dd>${d('l6_paket')}</dd></dl>${ph.length?`<div class="tbl-wrap"><table><thead><tr><th>Pihak</th><th>Kuadran</th><th>Kepentingan atau kekhawatiran</th></tr></thead><tbody>${ph.map(i=>`<tr><td>${esc(g('l6_ph'+i))}</td><td>${esc(g('l6_kd'+i))}</td><td>${esc(g('l6_kp'+i))}</td></tr>`).join('')}</tbody></table></div>`:''}<dl><dt>Belum dihubungi</dt><dd>${d('l6_belum')}</dd><dt>Risikonya</dt><dd>${d('l6_risiko')}</dd></dl>${ac.length?`<div class="tbl-wrap"><table><thead><tr><th>Tindakan komunikasi</th><th>Kapan</th><th>PIC</th></tr></thead><tbody>${ac.map(i=>`<tr><td>${esc(g('l6_t'+i))}</td><td>${esc(g('l6_w'+i))}</td><td>${esc(g('l6_pic'+i))}</td></tr>`).join('')}</tbody></table></div>`:''}`],
-    l7:['Latihan 7 · Rencana 30 hari', `<dl><dt>Kebiasaan 1</dt><dd>${dd(habitOf(st,1))}</dd><dt>Kebiasaan 2</dt><dd>${dd(habitOf(st,2))}</dd><dt>Mitra akuntabilitas</dt><dd>${d('l7_mitra')}</dd><dt>Tanggal saling cek</dt><dd>${dd(fmtDate(g('l7_tgl')))}</dd></dl>`]
+    l6:['Latihan 6 · Peta pemangku kepentingan', `<dl><dt>Paket yang dipetakan</dt><dd>${d('l6_paket')}</dd></dl>${ph.length?`<div class="tbl-wrap"><table><thead><tr><th>Pihak</th><th>Kuadran</th><th>Kepentingan atau kekhawatiran</th></tr></thead><tbody>${ph.map(i=>`<tr><td>${esc(g('l6_ph'+i))}</td><td>${esc(g('l6_kd'+i))}</td><td>${esc(g('l6_kp'+i))}</td></tr>`).join('')}</tbody></table></div>`:''}<dl><dt>Belum dihubungi</dt><dd>${d('l6_belum')}</dd><dt>Risikonya</dt><dd>${d('l6_risiko')}</dd></dl>${ac.length?`<div class="tbl-wrap"><table><thead><tr><th>Tindakan komunikasi</th><th>Kapan</th><th>PIC</th></tr></thead><tbody>${ac.map(i=>`<tr><td>${esc(g('l6_t'+i))}</td><td>${esc(g('l6_w'+i))}</td><td>${esc(g('l6_pic'+i))}</td></tr>`).join('')}</tbody></table></div>`:''}`]
   };
 }
 function summaryHTML(st = S){
@@ -1159,7 +1123,6 @@ function summaryText(){
   L.push('','LATIHAN 5 · NEGOSIASI TUGAS'); line('1 · Terima permintaannya',val('l5_terima')); line('2 · Paparkan beban saat ini',val('l5_papar')); line('3 · Minta atasan memilih',val('l5_pilih')); line('Paling meyakinkan',val('l5_yakin')); line('Perlu lebih spesifik',val('l5_spesifik'));
   L.push('','LATIHAN 6 · PETA PEMANGKU KEPENTINGAN'); line('Paket',val('l6_paket')); [1,2,3,4,5,6].filter(i=>val('l6_ph'+i)).forEach(i=>L.push(`- ${val('l6_ph'+i)} | ${val('l6_kd'+i)||'-'} | ${val('l6_kp'+i)||'-'}`));
   line('Belum dihubungi',val('l6_belum')); line('Risikonya',val('l6_risiko')); [1,2,3].filter(i=>val('l6_t'+i)).forEach((i,n)=>L.push(`Tindakan ${n+1}: ${val('l6_t'+i)} | ${val('l6_w'+i)||'-'} | PIC ${val('l6_pic'+i)||'-'}`));
-  L.push('','LATIHAN 7 · RENCANA 30 HARI'); line('Kebiasaan 1',habitText(1)); line('Kebiasaan 2',habitText(2)); line('Mitra akuntabilitas',val('l7_mitra')); line('Tanggal saling cek',fmtDate(val('l7_tgl')));
   return L.join('\n');
 }
 const slug = () => (val('r_nama')||'peserta').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'') || 'peserta';
@@ -1210,7 +1173,6 @@ function onField(e){
   if (k.startsWith('l1_c')) refreshMeter();
   if (k.startsWith('l3_')) refreshL3();
   if (k.startsWith('l6_')) refreshL6();
-  if (k.startsWith('l7_k')) refreshHabits();
   persist(); progress();
   sendErr = ''; refreshSend();
 }
@@ -1364,7 +1326,7 @@ function rebuildValues(){
   });
   refreshAll(); go(cur);
 }
-function refreshAll(){ refreshMeter(); refreshL3(); refreshL6(); refreshHabits(); progress(); refreshSend(); }
+function refreshAll(){ refreshMeter(); refreshL3(); refreshL6(); progress(); refreshSend(); }
 
 refreshAll(); go(cur);
 persist();
